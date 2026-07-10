@@ -1,0 +1,336 @@
+const __vite__mapDeps = (
+  i,
+  m = __vite__mapDeps,
+  d = m.f ||
+    (m.f = [
+      "assets/RouletteModal.COH2o-QH.js",
+      "assets/react.PneIXFW0.js",
+      "assets/ModalLayer.B5DWEgzR.js",
+      "assets/useModalContext.CtS9G1hM.js",
+      "assets/index.L_oMLRKj.js",
+      "assets/index.B6ccmzU4.css",
+      "assets/ModalLayer.CXW2sm24.css",
+      "assets/rouletteModal.BYRt7GJc.js",
+      "assets/CustomButton.aFAv9M3W.js",
+      "assets/proxy.B82iKJfU.js",
+      "assets/RouletteModal.DXwwk9k2.css",
+      "assets/RouletteInfoModal.C7xXcvlY.js",
+      "assets/ResultModal.VqGkZyj0.js",
+      "assets/exchange-success-modal.7YjBzgMk.js",
+      "assets/silvercoin64.pE6ZNRDh.js",
+      "assets/index.C5J4nSwT.js",
+      "assets/warehouse-bottom-banner.DuJ0nUSH.js",
+      "assets/roulette-arrow.JQ64dE1K.js",
+      "assets/getRandomFromTo.CAXMFiD-.js",
+      "assets/icons.DuQb2KfE.js",
+    ]),
+) => i.map((i) => d[i]);
+import { j as Y, A as K, b as H, d as Q, u as J, U as Z, F as ee, G as te, _ as E, p as S, l as re, m as ne, n as ae } from "./index.L_oMLRKj.js";
+import { r, j as e } from "./react.PneIXFW0.js";
+import { b as se } from "./warehouse-bottom-banner.DuJ0nUSH.js";
+import { C as oe } from "./CustomButton.aFAv9M3W.js";
+import { c as ce, a as ie, r as le, w as ue } from "./roulette-arrow.JQ64dE1K.js";
+import { c as me } from "./silvercoin64.pE6ZNRDh.js";
+import { g as N } from "./getRandomFromTo.CAXMFiD-.js";
+import { T as de, c as _e } from "./icons.DuQb2KfE.js";
+import { u as pe } from "./useModalContext.CtS9G1hM.js";
+import { m as X } from "./proxy.B82iKJfU.js";
+const ge = "_wrapper_8jmce_1",
+  be = "_subtitle_8jmce_8",
+  fe = "_bottomBannerWrapper_8jmce_16",
+  we = "_banner_8jmce_25",
+  je = "_content_8jmce_29",
+  Re = "_button_8jmce_40",
+  ye = "_woodImageWrapper_8jmce_46",
+  Te = "_spinAmount_8jmce_52",
+  ve = "_wheelWrapper_8jmce_79",
+  Ie = "_rouletteImage_8jmce_90",
+  he = "_rouletteArrowImage_8jmce_105",
+  xe = "_roulette_8jmce_90",
+  Se = "_bg_8jmce_125",
+  Ne = "_sections_8jmce_133",
+  Ae = "_section_8jmce_133",
+  Me = "_imageTarget_8jmce_156",
+  Ee = "_birdImage_8jmce_162",
+  Be = "_coin_8jmce_169",
+  Pe = "_sectionSilver_8jmce_174",
+  Oe = "_resultModal_8jmce_202",
+  We = "_title_8jmce_224",
+  De = "_rewardName_8jmce_227",
+  Ce = "_rewardImage_8jmce_232",
+  ke = "_claimBtn_8jmce_240",
+  Xe = "_infoRoulette_8jmce_248",
+  t = {
+    wrapper: ge,
+    subtitle: be,
+    bottomBannerWrapper: fe,
+    banner: we,
+    content: je,
+    button: Re,
+    woodImageWrapper: ye,
+    spinAmount: Te,
+    wheelWrapper: ve,
+    rouletteImage: Ie,
+    rouletteArrowImage: he,
+    roulette: xe,
+    bg: Se,
+    sections: Ne,
+    section: Ae,
+    imageTarget: Me,
+    birdImage: Ee,
+    coin: Be,
+    sectionSilver: Pe,
+    resultModal: Oe,
+    title: We,
+    rewardName: De,
+    rewardImage: Ce,
+    claimBtn: ke,
+    infoRoulette: Xe,
+  },
+  Fe = "/roulette-wheel-wrapper.webp",
+  Ge = ({ setRoll: o, roll: n, rewardList: u, winnerIndex: a, onFinish: c }) => {
+    const d = r.useRef(null),
+      f = r.useRef("default"),
+      i = r.useRef(0),
+      m = r.useRef(0),
+      _ = r.useRef(null),
+      g = r.useRef(0),
+      p = r.useRef(0),
+      B = r.useRef(0),
+      [I, P] = r.useState(!1),
+      O = r.useRef(null),
+      W = r.useRef(0),
+      G = -12,
+      R = () => {
+        (_.current !== null && cancelAnimationFrame(_.current), (_.current = null));
+      },
+      h = () => {
+        d.current && (d.current.style.transform = `rotate(${i.current}deg)`);
+      },
+      z = (s) => {
+        const b = 0.0006428571428571428;
+        ((m.current = Math.min(0.45, m.current + b * s)), (i.current += m.current * s), h(), (_.current = requestAnimationFrame(y)));
+      },
+      $ = (s) => {
+        const l = O.current,
+          T = W.current,
+          b = Math.max(0, m.current - T * s),
+          w = ((m.current + b) / 2) * s,
+          v = i.current + w;
+        if (v >= l - 0.001 || b <= 0.001) {
+          ((i.current = l), (m.current = 0), h(), (f.current = "default"), R(), o(!1), c == null || c(), P(!1));
+          return;
+        }
+        ((i.current = v), (m.current = b), h(), (_.current = requestAnimationFrame(y)));
+      },
+      y = (s) => {
+        g.current || (g.current = s);
+        const l = s - g.current;
+        switch (((g.current = s), f.current)) {
+          case "infinitySpin": {
+            z(l);
+            return;
+          }
+          case "slowing": {
+            $(l);
+            return;
+          }
+          default:
+            _.current = null;
+        }
+      };
+    return (
+      r.useEffect(() => {
+        n &&
+          a === null &&
+          !I &&
+          (R(),
+          (f.current = "infinitySpin"),
+          (g.current = 0),
+          (m.current = 0.05),
+          (B.current = Date.now()),
+          d.current && ((d.current.style.transition = "none"), (d.current.style.animation = "none"), (d.current.style.willChange = "transform")),
+          (_.current = requestAnimationFrame(y)));
+      }, [n, a]),
+      r.useEffect(() => {
+        if (a === null) {
+          p.current = 0;
+          return;
+        }
+        const s = N(1e3, 1500),
+          l = Date.now() - B.current,
+          T = s - l;
+        let b;
+        if (l < s && !I) {
+          b = setTimeout(() => {
+            P(!0);
+          }, T);
+          return;
+        }
+        const w = 360 / u.length;
+        if (!p.current) {
+          const U = a * w + w / 2 + G,
+            V = N(-(w / 2), w / 2);
+          p.current = U + V;
+        }
+        const v = (360 - ((i.current + p.current) % 360)) % 360,
+          D = N(1, 3),
+          C = i.current + v + D * 360,
+          q = 2e-5,
+          L = 0.002,
+          k = Math.max(m.current, 0.05);
+        let x = (k * k) / (2 * (C - i.current));
+        return (
+          (x = Math.min(L, Math.max(q, x))),
+          R(),
+          (f.current = "slowing"),
+          (O.current = C),
+          (W.current = x),
+          (g.current = 0),
+          (_.current = requestAnimationFrame(y)),
+          () => {
+            clearInterval(b);
+          }
+        );
+      }, [a, I]),
+      r.useEffect(() => R, []),
+      e.jsxs("div", {
+        className: t.wheelWrapper,
+        children: [
+          e.jsx("img", { className: t.rouletteImage, src: ce, alt: "" }),
+          e.jsx("img", { className: t.rouletteImage, src: ie, alt: "" }),
+          e.jsx("div", { className: t.rouletteArrowImage, children: e.jsx("img", { src: le, alt: "" }) }),
+          e.jsxs("div", {
+            ref: d,
+            className: t.roulette,
+            style: { transform: `rotate(${i.current}deg)` },
+            children: [
+              e.jsx("div", { className: t.bg, children: e.jsx("img", { className: t.rouletteImageMain, src: Fe, alt: "" }) }),
+              e.jsx("div", { className: t.sections, children: u.map((s, l) => e.jsx(ze, { i: l, section: s, total: u.length }, l)) }),
+            ],
+          }),
+        ],
+      })
+    );
+  };
+function ze({ i: o, section: n, total: u }) {
+  return e.jsx("div", {
+    className: t.section,
+    style: { transform: `rotate(${(360 / u) * o}deg)` },
+    children:
+      n.rewardType === "bird"
+        ? e.jsx("div", { className: t.imageTarget, children: e.jsx("div", { className: t.birdImage, children: e.jsx("img", { src: n.img, alt: "" }) }) })
+        : e.jsxs("div", {
+            className: t.sectionSilver,
+            children: [e.jsx("div", { className: t.coin, children: e.jsx("img", { src: me, alt: "" }) }), e.jsx("div", { className: t.value, children: n.value })],
+          }),
+  });
+}
+const A = "/static/images/roulette/Baby.webp",
+  M = "/static/images/roulette/Green.webp",
+  F = "/static/images/roulette/Yellow.webp",
+  $e = "/static/images/roulette/Blue.webp",
+  qe = "/static/images/roulette/Red.webp",
+  Le = async () => {
+    try {
+      const { data: o } = await Y.post("/users/roulette"),
+        n = j.map((a, c) => (a.value === o.name ? c : -1)).filter((a) => a !== -1);
+      let u = null;
+      if (n.length > 0) {
+        const a = Math.floor(Math.random() * n.length);
+        u = n[a];
+      }
+      return (console.log(u, o), u);
+    } catch (o) {
+      return (console.log(o, K.USER_TASK_CHECK), null);
+    }
+  },
+  Ue = r.lazy(() => E(() => import("./RouletteModal.COH2o-QH.js"), __vite__mapDeps([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))),
+  Ve = r.lazy(() => E(() => import("./RouletteInfoModal.C7xXcvlY.js"), __vite__mapDeps([11, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))),
+  Ye = r.lazy(() => E(() => import("./ResultModal.VqGkZyj0.js"), __vite__mapDeps([12, 1, 2, 3, 4, 5, 6, 13, 8, 9, 14, 15, 16, 17, 18, 19]))),
+  j = [
+    { value: "birds_a", rewardType: "bird", birdName: "Baby Bird", img: A },
+    { value: "birds_b", rewardType: "bird", birdName: "Green", img: M },
+    { value: "birds_c", rewardType: "bird", birdName: "Yellow", img: F },
+    { rewardType: "silver", value: "5000" },
+    { value: "birds_a", rewardType: "bird", birdName: "Baby Bird", img: A },
+    { value: "birds_b", rewardType: "bird", birdName: "Green", img: M },
+    { rewardType: "silver", value: "3000" },
+    { value: "birds_d", rewardType: "bird", birdName: "Blue", img: $e },
+    { value: "birds_c", rewardType: "bird", birdName: "Yellow", img: F },
+    { rewardType: "silver", value: "10000" },
+    { value: "birds_a", rewardType: "bird", birdName: "Baby Bird", img: A },
+    { value: "birds_b", rewardType: "bird", birdName: "Green", img: M },
+    { value: "birds_e", rewardType: "bird", birdName: "Red", img: qe },
+    { rewardType: "silver", value: "1000" },
+  ],
+  Ke = () => {
+    const { open: o } = pe(),
+      { t: n } = H(),
+      u = Q(),
+      a = J(Z.amount_roulette_tickets),
+      [c, d] = r.useState(null),
+      [f, i] = r.useState(!1),
+      m = async () => {
+        if ((S(), a <= 0)) {
+          (ae(), o(e.jsx(Ue, {})));
+          return;
+        }
+        if (f || c !== null) return;
+        i(!0);
+        const p = await Le();
+        d(p);
+      },
+      _ = async () => {
+        S();
+        const p = await re();
+        (u(ne({ user: p })), d(null));
+      },
+      g = () => {
+        (S(), o(e.jsx(Ve, {})));
+      };
+    return e.jsxs("div", {
+      className: t.wrapper,
+      children: [
+        e.jsx("h2", { className: "pagetitle27", children: n("roulette.pageTitle") }),
+        e.jsx("p", { className: t.subtitle, children: n("roulette.subtitle") }),
+        e.jsxs(X.div, {
+          initial: { opacity: 0, scale: 0, left: "50%", translateX: "-50%" },
+          animate: { opacity: 1, scale: 1, left: "50%", translateX: "-50%" },
+          transition: { delay: 0.5, duration: 0.2 },
+          className: t.woodImageWrapper,
+          children: [
+            e.jsx(Ge, {
+              setRoll: i,
+              rewardList: j,
+              roll: f,
+              winnerIndex: c,
+              onFinish: () => {
+                (c && (j[c].rewardType === "silver" ? ee() : te()), o(e.jsx(Ye, { reward: c !== null ? j[c] : null, onClose: _ })));
+              },
+            }),
+            e.jsx("img", { src: ue, className: t.woodImage, alt: "" }),
+            e.jsxs("p", { className: t.spinAmount, children: [e.jsx(de, {}), a] }),
+          ],
+        }),
+        e.jsxs("div", {
+          className: t.bottomBannerWrapper,
+          children: [
+            e.jsxs(X.div, {
+              initial: { opacity: 0, bottom: -200 },
+              animate: { opacity: 1, bottom: -10 },
+              transition: { delay: 0.1, duration: 0.4 },
+              className: t.banner,
+              children: [
+                e.jsx("img", { src: se, alt: "" }),
+                e.jsx("div", { className: t.content, children: e.jsx(oe, { text: n("roulette.button"), onClick: m, className: `${t.button} spinButton` }) }),
+              ],
+            }),
+            e.jsx("button", { className: t.infoRoulette, onClick: g, children: e.jsx(_e, {}) }),
+          ],
+        }),
+      ],
+    });
+  },
+  ot = Object.freeze(Object.defineProperty({ __proto__: null, default: Ke, sections: j }, Symbol.toStringTag, { value: "Module" }));
+export { ot as R, t as s };

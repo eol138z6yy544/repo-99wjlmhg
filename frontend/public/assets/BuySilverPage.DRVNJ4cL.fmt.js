@@ -1,0 +1,381 @@
+const __vite__mapDeps = (
+  i,
+  m = __vite__mapDeps,
+  d = m.f ||
+    (m.f = [
+      "assets/AlertModal.CFSQUkiG.js",
+      "assets/react.PneIXFW0.js",
+      "assets/ModalLayer.B5DWEgzR.js",
+      "assets/useModalContext.CtS9G1hM.js",
+      "assets/index.L_oMLRKj.js",
+      "assets/index.B6ccmzU4.css",
+      "assets/ModalLayer.CXW2sm24.css",
+      "assets/exchange-success-modal.7YjBzgMk.js",
+      "assets/CustomButton.aFAv9M3W.js",
+      "assets/proxy.B82iKJfU.js",
+      "assets/cn.CzrlVXIY.js",
+      "assets/AlertModal.DTDOZ-Cn.css",
+    ]),
+) => i.map((i) => d[i]);
+import { b as h, g as M, v as E, u as N, U as I, p as Q, n as R, x as k, _ as D } from "./index.L_oMLRKj.js";
+import { r as p, j as t } from "./react.PneIXFW0.js";
+import { u as L } from "./useGoBackButton.CPJjDcfO.js";
+import { C as U } from "./CustomButton.aFAv9M3W.js";
+import { f as $ } from "./formatNumberWithSpaces.C3OQmX2l.js";
+import { u as S } from "./useModalContext.CtS9G1hM.js";
+import { b as W } from "./birdsPackData.D6tRKSmQ.js";
+import { c as F } from "./silvercoin64.pE6ZNRDh.js";
+import { a as K } from "./info.CTQ_d62b.js";
+import { M as V } from "./ModalLayer.B5DWEgzR.js";
+import { u as z } from "./useCountDown.CYlLSblD.js";
+import { f as G } from "./formatDate.Cjj3rxol.js";
+import { m as v } from "./proxy.B82iKJfU.js";
+const O = "_wrapper_ppdt7_1",
+  X = "_banner_ppdt7_7",
+  H = "_content_ppdt7_14",
+  J = "_currency_ppdt7_27",
+  Y = "_inputContainer_ppdt7_32",
+  Z = "_input_ppdt7_32",
+  tt = "_text_ppdt7_55",
+  st = "_silver_ppdt7_55",
+  et = "_tickets_ppdt7_68",
+  nt = "_bottomContent_ppdt7_148",
+  at = "_bonusesBlock_ppdt7_156",
+  ct = "_subtitle_ppdt7_165",
+  ot = "_paymentsBonusesBlock_ppdt7_176",
+  r = { wrapper: O, banner: X, content: H, currency: J, inputContainer: Y, input: Z, text: tt, silver: st, tickets: et, bottomContent: nt, bonusesBlock: at, subtitle: ct, paymentsBonusesBlock: ot },
+  rt = "/buySilver/buy-silver-wood-bg.webp",
+  it = "_container_t8fyr_1",
+  lt = "_currency_t8fyr_9",
+  dt = "_pack_t8fyr_20",
+  _t = "_offer_t8fyr_24",
+  mt = "_packContent_t8fyr_31",
+  ut = "_price_t8fyr_42",
+  pt = "_silver_t8fyr_57",
+  bt = "_birds_t8fyr_72",
+  ht = "_bird_t8fyr_72",
+  yt = "_tenths_t8fyr_91",
+  xt = "_hundredths_t8fyr_94",
+  ft = "_thousandths_t8fyr_97",
+  vt = "_img_t8fyr_100",
+  gt = "_quantity_t8fyr_116",
+  jt = "_small_t8fyr_125",
+  Nt = "_big_t8fyr_128",
+  kt = "_oldQuantity_t8fyr_136",
+  Bt = "_birds_a_t8fyr_140",
+  Pt = "_birds_b_t8fyr_159",
+  $t = "_birds_c_t8fyr_175",
+  St = "_birds_d_t8fyr_192",
+  Ct = "_birds_e_t8fyr_209",
+  qt = "_ticket_t8fyr_225",
+  wt = "_oldPrice_t8fyr_248",
+  e = {
+    container: it,
+    currency: lt,
+    pack: dt,
+    offer: _t,
+    packContent: mt,
+    price: ut,
+    silver: pt,
+    birds: bt,
+    bird: ht,
+    tenths: yt,
+    hundredths: xt,
+    thousandths: ft,
+    img: vt,
+    quantity: gt,
+    small: jt,
+    big: Nt,
+    oldQuantity: kt,
+    birds_a: Bt,
+    birds_b: Pt,
+    birds_c: $t,
+    birds_d: St,
+    birds_e: Ct,
+    ticket: qt,
+    oldPrice: wt,
+  },
+  Tt = "/buySilver/packBg.webp",
+  At = (n) => {
+    if (!Number.isFinite(n)) return "notNumber";
+    const o = n.toString().split("").length;
+    switch (o) {
+      case 1:
+        return "tenths";
+      case 2:
+        return "hundredths";
+      case 3:
+        return "thousandths";
+      default:
+        return `decimals_${o}`;
+    }
+  },
+  Mt = ({ onSelect: n }) => {
+    const { t: i } = h(),
+      o = M(),
+      [c, l] = p.useState([]);
+    return (
+      p.useEffect(() => {
+        (async () => {
+          const a = await W();
+          l(a);
+        })();
+      }, []),
+      console.log(c),
+      p.useEffect(() => {
+        var s;
+        if (!((s = o.state) != null && s.birdsPackClick) || c.length === 0) return;
+        const a = document.querySelector(".birdsPack");
+        a && a.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, [c, o.state]),
+      c.length > 0 &&
+        t.jsxs("div", {
+          className: `birdsPack ${e.container}`,
+          children: [
+            t.jsx("h2", { children: i("birdsPack.title") }),
+            c.map((a) =>
+              t.jsxs(
+                "div",
+                {
+                  className: e.pack,
+                  children: [
+                    a.offer && t.jsx("p", { className: e.offer, children: t.jsx("img", { src: a.offer, alt: "start" }) }),
+                    t.jsxs("div", {
+                      className: e.packContent,
+                      children: [
+                        t.jsxs("div", {
+                          children: [
+                            t.jsxs("h3", {
+                              className: e.price,
+                              children: [
+                                t.jsxs("span", { children: [i("birdsPack.pricePack"), " ", Math.floor(a.price_usd / 0.0168999804222769), " "] }),
+                                t.jsx("img", { src: "/static/images/icons/tgStar.svg", alt: "star", className: e.currency }),
+                              ],
+                            }),
+                            t.jsxs("p", { className: e.silver, children: [t.jsx("img", { src: F, alt: "silver" }), $(a.amount_silver), " ", i("birdsPack.silver")] }),
+                          ],
+                        }),
+                        t.jsx("div", {
+                          className: e.birds,
+                          children: a.birds.map((s) =>
+                            t.jsxs(
+                              "div",
+                              {
+                                className: `${e.bird} ${e[s.className]} ${e[At(s.quantity)]}`,
+                                children: [
+                                  t.jsx("img", { src: s.image, alt: "bird", className: e.img }),
+                                  s.oldQuantity !== null &&
+                                    t.jsxs("p", { className: `${e.quantity} ${e.oldQuantity} ${e.oldPrice} ${s.quantity > 100 ? e.small : e.big}`, children: ["x", s.oldQuantity] }),
+                                  t.jsxs("p", { className: `${e.quantity} ${s.quantity > 100 ? e.small : e.big}`, children: ["x", s.quantity] }),
+                                ],
+                              },
+                              s.id,
+                            ),
+                          ),
+                        }),
+                        t.jsx("button", { className: `btn blueButton ${e.buy}`, onClick: () => n(a.id, a.price_usd), children: i("buy") }),
+                      ],
+                    }),
+                    t.jsx("img", { src: Tt, alt: "pack bg" }),
+                  ],
+                },
+                a.id,
+              ),
+            ),
+          ],
+        })
+    );
+  },
+  Et = "_container_q6bva_1",
+  It = "_overlay_q6bva_11",
+  Qt = "_content_q6bva_17",
+  Rt = "_info_q6bva_27",
+  Dt = "_table_q6bva_54",
+  Lt = "_header_q6bva_59",
+  Ut = "_body_q6bva_74",
+  Wt = "_active_q6bva_84",
+  Ft = "_amount_q6bva_87",
+  Kt = "_percentage_q6bva_88",
+  _ = { container: Et, overlay: It, content: Qt, info: Rt, table: Dt, header: Lt, body: Ut, active: Wt, amount: Ft, percentage: Kt },
+  Vt = "/action/actionTableBg.webp",
+  zt = "_wrapper_1lbdn_1",
+  Gt = "_content_1lbdn_7",
+  Ot = "_text_1lbdn_20",
+  u = { wrapper: zt, content: Gt, text: Ot },
+  Xt = "/action/modalBg.webp",
+  Ht = () => {
+    const { t: n } = h();
+    return t.jsx(V, {
+      children: t.jsxs("div", {
+        className: u.wrapper,
+        children: [
+          t.jsx("img", { src: Xt, alt: "", className: u.bg }),
+          t.jsxs("div", {
+            className: u.content,
+            children: [
+              t.jsx("h2", { children: n("action.modal.title") }),
+              t.jsx("p", { className: u.text, children: n("action.modal.text") }),
+              t.jsx("p", { className: u.text, children: n("action.modal.text2") }),
+            ],
+          }),
+        ],
+      }),
+    });
+  },
+  Jt = ({ actionData: n, actionBonus: i }) => {
+    const { open: o } = S(),
+      { t: c } = h(),
+      l = n[0];
+    if (!l) return null;
+    const a = l.end_date,
+      s = z(a || "");
+    return t.jsx("div", {
+      className: _.container,
+      children: t.jsxs("div", {
+        className: _.overlay,
+        children: [
+          t.jsxs("div", {
+            className: _.content,
+            children: [
+              t.jsxs("div", {
+                className: _.info,
+                children: [
+                  t.jsx("button", {
+                    onClick: () => {
+                      o(t.jsx(Ht, {}));
+                    },
+                    children: t.jsx("img", { src: K, alt: "info" }),
+                  }),
+                  t.jsx("h3", { children: c("action.table.title") }),
+                  t.jsx("p", { children: G(s, c, !1, !1) }),
+                ],
+              }),
+              t.jsxs("div", {
+                className: _.table,
+                children: [
+                  t.jsxs("div", { className: _.header, children: [t.jsx("p", { children: c("action.table.deposit") }), t.jsx("p", { children: c("action.table.bonus") })] }),
+                  n.map((m, y) => {
+                    const x = i === Number(m.bonus_percent);
+                    return t.jsxs(
+                      "div",
+                      {
+                        className: `${_.body} ${x ? _.active : ""}`,
+                        children: [t.jsxs("p", { className: _.amount, children: ["$ ", m.name] }), t.jsxs("p", { className: _.percentage, children: ["+ ", m.bonus_percent, "%"] })],
+                      },
+                      y,
+                    );
+                  }),
+                ],
+              }),
+            ],
+          }),
+          t.jsx("img", { src: Vt, alt: "action" }),
+        ],
+      }),
+    });
+  };
+function Yt(n, i) {
+  for (const o of i) {
+    const c = o.name;
+    if (c.includes("+")) {
+      const l = Number(c.replace("+", ""));
+      if (n >= l) return Number(o.bonus_percent);
+    }
+    if (c.includes("-")) {
+      const [l, a] = c.split("-").map(Number);
+      if (n >= l && n <= a) return Number(o.bonus_percent);
+    }
+  }
+  return 0;
+}
+const B = window.Telegram.WebApp,
+  g = p.lazy(() => D(() => import("./AlertModal.CFSQUkiG.js"), __vite__mapDeps([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]))),
+  Zt = /^[0-9]*$/,
+  P = 0.0168999804222769,
+  us = () => {
+    const { t: n } = h(),
+      i = E()[0].get("stars"),
+      o = N((d) => d.action),
+      c = N(I.deposit_counter),
+      [l, a] = p.useState(() => i || "150"),
+      s = +l,
+      m = Yt(s * P, o),
+      y = Math.floor(s / 600),
+      x = c ? m : 20 + m * (s >= 20 ? 1 : 0),
+      C = s * P * 1e4,
+      q = Math.round(C * (1 + x / 100)),
+      w = ({ target: { value: d } }) => Zt.test(d) && a(d),
+      { open: f } = S(),
+      j = (d) => {
+        (B.expand(),
+          B.openInvoice(d, (b) => {
+            (b === "paid" && f(t.jsx(g, { messageTranslateKey: "buySilverPage.alertModal.success", type: "success" })),
+              b === "failed" && f(t.jsx(g, { messageTranslateKey: "buySilverPage.alertModal.error", type: "error" })));
+          }));
+      },
+      T = async () => {
+        if ((Q(), !s || s < 150)) {
+          (R(), f(t.jsx(g, { messageTranslateKey: "buySilverPage.minAmount" })));
+          return;
+        }
+        k({ amount: s }).then(({ url: d }) => j(d));
+      },
+      A = (d) => {
+        k({ pack_id: d }).then(({ url: b }) => j(b));
+      };
+    return (
+      L(),
+      t.jsxs("div", {
+        className: r.wrapper,
+        children: [
+          t.jsx("h2", { className: "pagetitle21", style: { marginTop: 15 }, children: n("buySilverPage.title") }),
+          t.jsxs(v.div, {
+            transition: { duration: 0.3, delay: 0.3 },
+            initial: { scale: 0, opacity: 0 },
+            animate: { opacity: 1, scale: 1 },
+            className: r.banner,
+            children: [
+              t.jsxs("div", {
+                className: r.content,
+                children: [
+                  t.jsxs("label", {
+                    className: r.inputContainer,
+                    htmlFor: "amount",
+                    children: [
+                      t.jsx("img", { src: "/static/images/icons/tgStar.svg", alt: "star", className: r.currency }),
+                      t.jsx("input", { id: "amount", placeholder: "0", value: l, onChange: w, type: "tel", className: r.input }),
+                    ],
+                  }),
+                  t.jsxs("div", {
+                    children: [
+                      t.jsx("p", { className: r.text, children: n("buySilverPage.youWillReceive") }),
+                      t.jsxs("p", { className: r.silver, children: [$(q), " Silver"] }),
+                      t.jsxs("p", { className: r.tickets, children: [t.jsx("img", { src: "/static/ticket.svg", alt: "tick", width: "20", height: 20 }), y, " Spins"] }),
+                    ],
+                  }),
+                  t.jsx(U, { text: "Pay", onClick: T, className: `blueButton ${r.button}` }),
+                ],
+              }),
+              t.jsx("img", { src: rt, alt: "bg" }),
+            ],
+          }),
+          t.jsxs("div", {
+            className: r.bottomContent,
+            children: [
+              o.length > 0 && t.jsx(Jt, { actionData: o, actionBonus: m }),
+              c === 0 &&
+                t.jsx(v.div, {
+                  initial: { scale: 0.3 },
+                  animate: { scale: 1 },
+                  className: r.paymentsBonusesBlock,
+                  children: t.jsx("p", { className: r.subtitle, children: n("buySilverPage.infoPaymentsBonus") }),
+                }),
+              t.jsx(v.div, { initial: { scale: 0.3 }, animate: { scale: 1 }, className: r.bonusesBlock, children: t.jsx("p", { className: r.subtitle, children: n("buySilverPage.infoTickets") }) }),
+              t.jsx(Mt, { onSelect: A }),
+            ],
+          }),
+        ],
+      })
+    );
+  };
+export { us as default };

@@ -1,0 +1,1 @@
+const n="_modal_5knzq_1",t="_modalTitle_5knzq_16",_="_lngbtn_5knzq_23",o="_imgBlock_5knzq_32",l="_lngbtnInner_5knzq_47",e="_btn_5knzq_56",c="_lngText_5knzq_69",s="_lngTextCur_5knzq_69",g="_text_5knzq_77",k="_active_5knzq_84",a={modal:n,modalTitle:t,lngbtn:_,imgBlock:o,lngbtnInner:l,btn:e,lngText:c,lngTextCur:s,text:g,active:k},b="/header/woodenButton.webp";export{a as s,b as w};

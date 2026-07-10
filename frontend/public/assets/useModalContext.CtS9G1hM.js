@@ -1,0 +1,1 @@
+import{r as t}from"./react.PneIXFW0.js";import{S as e}from"./index.L_oMLRKj.js";const s=()=>{const o=t.useContext(e);if(!o)throw new Error("Use useModalContext inside ModalContextProvider");return o};export{s as u};

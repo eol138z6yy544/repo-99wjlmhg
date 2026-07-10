@@ -1,0 +1,256 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                  Int      @id @default(autoincrement())
+  tgId                BigInt   @unique @map("tg_id")
+  firstName           String?  @map("first_name")
+  lastName            String?  @map("last_name")
+  username            String?
+  languageCode        String?  @map("language_code")
+  photoUrl            String?  @map("photo_url")
+  allowsWriteToPm     Boolean  @default(false) @map("allows_write_to_pm")
+  isBanned            Boolean  @default(false) @map("is_banned")
+  amountGold          Int      @default(0) @map("amount_gold")
+  amountSilver        Int      @default(1000) @map("amount_silver")
+  amountEggs          Int      @default(0) @map("amount_eggs")
+  amountRouletteTickets Int    @default(0) @map("amount_roulette_tickets")
+  totalProductivity   Int      @default(0) @map("total_productivity")
+  warehouseLevel      Int      @default(1) @map("warehouse_level")
+  refPaymentType      String   @default("silver") @map("ref_payment_type")
+  sellEggsGoldRate    Float    @default(0.5) @map("sell_eggs_gold_rate")
+  withdrawCredits     Int      @default(2) @map("withdraw_credits")
+  depositCounter      Int      @default(0) @map("deposit_counter")
+  withdrawCounter     Int      @default(0) @map("withdraw_counter")
+  lastCollectDate     DateTime @default(now()) @map("last_collect_date")
+  registrationDate    DateTime @default(now()) @map("registration_date")
+  referralCode        String?  @unique @map("referral_code")
+  referredBy          Int?     @map("referred_by")
+  createdAt           DateTime @default(now()) @map("created_at")
+  updatedAt           DateTime @updatedAt @map("updated_at")
+
+  birds       UserBird[]
+  tasks       UserTask[]
+  transactions Transaction[]
+  withdrawals Withdrawal[]
+  deposits    Deposit[]
+  rouletteSpins SilverRouletteSpin[]
+  birdsRouletteSpins BirdsRouletteSpin[]
+  referrals   Referral[] @relation("UserReferrals")
+
+  @@map("users")
+}
+
+model BirdType {
+  id                 String     @id
+  name               String
+  cost               Int
+  sellCost           Int        @map("sell_cost")
+  productivityPerHour Int      @map("productivity_per_hour")
+  fontColor          String     @map("font_color")
+  sortOrder          Int        @default(0) @map("sort_order")
+  userBirds          UserBird[]
+
+  @@map("bird_types")
+}
+
+model UserBird {
+  id        Int    @id @default(autoincrement())
+  userId    Int    @map("user_id")
+  birdTypeId String @map("bird_type_id")
+  qty       Int    @default(0)
+
+  user     User     @relation(fields: [userId], references: [id])
+  birdType BirdType @relation(fields: [birdTypeId], references: [id])
+
+  @@unique([userId, birdTypeId])
+  @@map("user_birds")
+}
+
+model WarehouseLevel {
+  level    Int @id
+  capacity Int
+  cost     Int
+
+  @@map("warehouse_levels")
+}
+
+model Task {
+  id          String  @id
+  title       String
+  description String
+  type        String
+  target      Int
+  actionLink  String? @map("action_link")
+  path        String?
+  rewardGold  Int     @default(0) @map("reward_gold")
+  rewardSilver Int    @default(0) @map("reward_silver")
+  sortOrder   Int     @default(0) @map("sort_order")
+
+  userTasks UserTask[]
+
+  @@map("tasks")
+}
+
+model UserTask {
+  id        Int     @id @default(autoincrement())
+  userId    Int     @map("user_id")
+  taskId    String  @map("task_id")
+  progress  Int     @default(0)
+  status    String  @default("not_started")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id])
+  task Task @relation(fields: [taskId], references: [id])
+
+  @@unique([userId, taskId])
+  @@map("user_tasks")
+}
+
+model Transaction {
+  id          Int      @id @default(autoincrement())
+  userId      Int      @map("user_id")
+  type        String   // deposit, withdraw, exchange, sell_eggs, buy_birds, sell_birds, upgrade, task, referral, roulette
+  amountGold  Int      @default(0) @map("amount_gold")
+  amountSilver Int     @default(0) @map("amount_silver")
+  amountEggs  Int      @default(0) @map("amount_eggs")
+  amountTon   Float    @default(0) @map("amount_ton")
+  currencyCode String? @map("currency_code")
+  status      String   @default("completed")
+  meta        Json?
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("transactions")
+}
+
+model Withdrawal {
+  id            Int      @id @default(autoincrement())
+  userId        Int      @map("user_id")
+  amountGold    Int      @map("amount_gold")
+  amountTon     Float    @map("amount_ton")
+  address       String
+  tag           String?
+  status        String   @default("pending") // pending, completed, rejected
+  txHash        String?  @map("tx_hash")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("withdrawals")
+}
+
+model Deposit {
+  id          Int      @id @default(autoincrement())
+  userId      Int      @map("user_id")
+  amountTon   Float    @map("amount_ton")
+  amountGold  Int      @map("amount_gold")
+  amountSilver Int    @map("amount_silver")
+  txHash      String?  @map("tx_hash")
+  comment     String?  @map("comment")
+  status      String   @default("pending") // pending, completed
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("deposits")
+}
+
+model BonusPack {
+  id                  Int      @id @default(autoincrement())
+  priceUsd            Float    @map("price_usd")
+  oldPriceUsd         Float?   @map("old_price_usd")
+  amountSilver        Int      @map("amount_silver")
+  amountRouletteTickets Int   @map("amount_roulette_tickets")
+  birdsA              Int      @map("birds_a")
+  birdsB              Int      @map("birds_b")
+  birdsC              Int      @map("birds_c")
+  birdsD              Int      @map("birds_d")
+  birdsE              Int      @map("birds_e")
+  endDate             DateTime @map("end_date")
+
+  @@map("bonus_packs")
+}
+
+model Contest {
+  id          Int      @id @default(autoincrement())
+  startDate   DateTime @map("start_date")
+  endDate     DateTime @map("end_date")
+  prizePool   Float    @map("prize_pool")
+  isActive    Boolean  @default(true) @map("is_active")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@map("contests")
+}
+
+model Referral {
+  id          Int      @id @default(autoincrement())
+  userId      Int      @map("user_id")
+  referralId  Int      @map("referral_id")
+  level       Int      @default(1)
+  rewardSilver Int     @default(0) @map("reward_silver")
+  rewardGold  Int      @default(0) @map("reward_gold")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  user       User @relation("UserReferrals", fields: [userId], references: [id])
+
+  @@unique([userId, referralId])
+  @@map("referrals")
+}
+
+model SilverRouletteSpin {
+  id          Int      @id @default(autoincrement())
+  userId      Int      @map("user_id")
+  amountSilver Int    @map("amount_silver")
+  prize       String
+  amountWon   Int      @map("amount_won")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("silver_roulette_spins")
+}
+
+model BirdsRouletteSpin {
+  id          Int      @id @default(autoincrement())
+  userId      Int      @map("user_id")
+  amountSilver Int   @map("amount_silver")
+  prizeType   String  @map("prize_type")
+  prizeAmount Int     @map("prize_amount")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("birds_roulette_spins")
+}
+
+model WithdrawRate {
+  id                Int     @id @default(autoincrement())
+  currencyCode      String  @unique @map("currency_code")
+  network           String
+  imageUrl          String? @map("image_url")
+  rateUsd           Float   @map("rate_usd")
+  feeUsd            Float   @default(0) @map("fee_usd")
+  minimumAmountGold Int     @map("minimum_amount_gold")
+  minimumAmountUsd  Float   @map("minimum_amount_usd")
+  isActive          Boolean @default(true) @map("is_active")
+
+  @@map("withdraw_rates")
+}
+
+model Config {
+  key   String @id
+  value String
+
+  @@map("config")
+}

@@ -1,0 +1,1 @@
+import{j as m}from"./react.PneIXFW0.js";import{m as r}from"./proxy.B82iKJfU.js";const i=({text:t,onClick:o,className:s})=>m.jsx(r.div,{whileTap:{scale:.9},className:`${s} button`,onClick:o,children:t});export{i as C};

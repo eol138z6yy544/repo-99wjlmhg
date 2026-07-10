@@ -1,0 +1,1 @@
+import{r}from"./react.PneIXFW0.js";const f=n=>{const e=r.useMemo(()=>new Date(n).getTime(),[n]),[o,a]=r.useState(()=>{const t=e-Date.now();return t>0?t:0});return r.useEffect(()=>{if(e<=0)return;const t=setInterval(()=>{const s=e-Date.now();a(s>0?s:0)},1e3);return()=>clearInterval(t)},[e]),o};export{f as u};

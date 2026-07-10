@@ -1,0 +1,1 @@
+import{j as e}from"./react.PneIXFW0.js";import{u as s,t}from"./index.L_oMLRKj.js";const r="_bg_1vpx2_1",l={bg:r},u=()=>{const o=s(t.cloud);return e.jsxs("div",{className:l.bg,children:[e.jsx("img",{src:"/video/Background_preview.webp",alt:""}),e.jsx("video",{src:"/video/Background_30_1.mp4",playsInline:!0,autoPlay:o,loop:!0,muted:!0,preload:"auto"})]})};export{u as default};

@@ -1,0 +1,193 @@
+const __vite__mapDeps = (
+  i,
+  m = __vite__mapDeps,
+  d = m.f ||
+    (m.f = [
+      "assets/AlertModal.CFSQUkiG.js",
+      "assets/react.PneIXFW0.js",
+      "assets/ModalLayer.B5DWEgzR.js",
+      "assets/useModalContext.CtS9G1hM.js",
+      "assets/index.L_oMLRKj.js",
+      "assets/index.B6ccmzU4.css",
+      "assets/ModalLayer.CXW2sm24.css",
+      "assets/exchange-success-modal.7YjBzgMk.js",
+      "assets/CustomButton.aFAv9M3W.js",
+      "assets/proxy.B82iKJfU.js",
+      "assets/cn.CzrlVXIY.js",
+      "assets/AlertModal.DTDOZ-Cn.css",
+    ]),
+) => i.map((i) => d[i]);
+import { b as N, d as B, u as C, U as S, p as v, n as x, z as P, C as A, _ as E } from "./index.L_oMLRKj.js";
+import { r as o, j as s } from "./react.PneIXFW0.js";
+import { g as k } from "./goldcoin64.CnzqZVev.js";
+import { c as G } from "./silvercoin64.pE6ZNRDh.js";
+import { b as T } from "./exchange-success-modal.7YjBzgMk.js";
+import { C as f } from "./CustomButton.aFAv9M3W.js";
+import { u as I } from "./useModalContext.CtS9G1hM.js";
+import { f as u } from "./formatNumberWithSpaces.C3OQmX2l.js";
+import { m as p } from "./proxy.B82iKJfU.js";
+import { A as W } from "./index.C5J4nSwT.js";
+const $ = "_wrapper_1swd0_1",
+  R = "_modal_1swd0_9",
+  z = "_s1_1swd0_13",
+  D = "_bg_1swd0_22",
+  K = "_input_1swd0_26",
+  U = "_content_1swd0_42",
+  F = "_t1_1swd0_48",
+  L = "_inputBlock_1swd0_54",
+  O = "_coin_1swd0_63",
+  V = "_error_1swd0_80",
+  q = "_disclaimer_1swd0_84",
+  H = "_successWrapper_1swd0_92",
+  J = "_overlay_1swd0_104",
+  Q = "_successModal_1swd0_114",
+  X = "_successModalImage_1swd0_119",
+  Y = "_successModalContent_1swd0_125",
+  Z = "_amount_1swd0_133",
+  ss = "_modalBtn_1swd0_140",
+  e = {
+    wrapper: $,
+    modal: R,
+    s1: z,
+    bg: D,
+    input: K,
+    content: U,
+    t1: F,
+    inputBlock: L,
+    coin: O,
+    error: V,
+    disclaimer: q,
+    successWrapper: H,
+    overlay: J,
+    successModal: Q,
+    successModalImage: X,
+    successModalContent: Y,
+    amount: Z,
+    modalBtn: ss,
+  },
+  h = "/exchanger-1-bg.webp",
+  es = "/exchanger-btn-bg.webp",
+  j = o.lazy(() => E(() => import("./AlertModal.CFSQUkiG.js"), __vite__mapDeps([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]))),
+  ps = () => {
+    const { t } = N(),
+      { open: l } = I(),
+      d = B(),
+      n = C(S.amount_gold),
+      [c, m] = o.useState(""),
+      [w, g] = o.useState(!1),
+      [b, r] = o.useState(!1);
+    o.useEffect(() => {
+      const a = n < 20 ? 20 : n;
+      m(a.toString());
+    }, []);
+    const _ = o.useMemo(() => {
+        const a = Number(c);
+        return a ? (a * 1.1).toFixed(0) : "";
+      }, [c]),
+      y = (a) => {
+        const i = a.target.value.replace(/\s/g, "");
+        Number(i) > 1e11 || (m(i), r(!1));
+      },
+      M = async () => {
+        v();
+        const a = Number(c);
+        if (!a) return;
+        if (a < 20) {
+          (r(!0), x(), l(s.jsx(j, { messageTranslateKey: "exchangePage.minAmountGold" })));
+          return;
+        }
+        if (a > n) {
+          (r(!0), x(), l(s.jsx(j, { messageTranslateKey: "exchangePage.maxAmountGold" })));
+          return;
+        }
+        const i = await P(a);
+        (d(A(i)), g(!0), r(!1));
+      };
+    return s.jsxs("div", {
+      className: e.wrapper,
+      children: [
+        s.jsx("h1", { className: "pagetitle27", children: t("exchangePage.pageTitle") }),
+        s.jsxs(p.div, {
+          className: e.modal,
+          initial: { scale: 0, opacity: 0 },
+          animate: { scale: 1, opacity: 1 },
+          children: [
+            s.jsxs("div", {
+              className: e.s1,
+              children: [
+                s.jsx("img", { className: e.bg, src: h, alt: "" }),
+                s.jsxs("div", {
+                  className: e.content,
+                  children: [
+                    s.jsx("h2", { className: e.t1, children: t("exchangePage.enterTheGoldSum") }),
+                    s.jsxs("div", {
+                      className: e.inputBlock,
+                      children: [
+                        s.jsx("div", { className: e.coin, children: s.jsx("img", { src: k, alt: "" }) }),
+                        s.jsx("input", { value: u(c), onChange: y, type: "tel", className: `${e.input} ${b ? e.error : ""}` }),
+                      ],
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            s.jsxs("div", {
+              className: e.s1,
+              children: [
+                s.jsx("img", { className: e.bg, src: h, alt: "" }),
+                s.jsxs("div", {
+                  className: e.content,
+                  children: [
+                    s.jsx("h2", { className: e.t1, children: t("exchangePage.youWillReceiveSilver") }),
+                    s.jsxs("div", {
+                      className: e.inputBlock,
+                      children: [s.jsx("div", { className: e.coin, children: s.jsx("img", { src: G, alt: "" }) }), s.jsx("input", { value: u(_), disabled: !0, type: "tel", className: e.input })],
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            s.jsxs("div", {
+              className: e.s1,
+              children: [
+                s.jsx("img", { className: e.bg, src: es, alt: "" }),
+                s.jsx("div", { className: e.content, children: s.jsx(f, { text: t("exchangePage.exchangeButton"), onClick: M, className: "button orangeButton" }) }),
+              ],
+            }),
+          ],
+        }),
+        s.jsx(W, { children: w && s.jsx(as, { amount: _, onClose: () => g(!1), setAmountGold: m }) }),
+        s.jsx("div", { className: e.disclaimer, children: t("exchangePage.disclaimer") }),
+      ],
+    });
+  };
+function as({ amount: t, onClose: l, setAmountGold: d }) {
+  const { t: n } = N(),
+    c = () => {
+      (v(), l(), d("20"));
+    };
+  return s.jsxs("div", {
+    className: e.successWrapper,
+    children: [
+      s.jsx(p.div, { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 }, className: e.overlay, onClick: c }),
+      s.jsxs(p.div, {
+        initial: { scale: 0, opacity: 0 },
+        animate: { scale: 1, opacity: 1 },
+        exit: { scale: 0, opacity: 0 },
+        className: e.successModal,
+        children: [
+          s.jsx("img", { src: T, className: e.successModalImage, alt: "" }),
+          s.jsxs("div", {
+            className: e.successModalContent,
+            children: [
+              s.jsx("h1", { className: "pagetitle21", children: n("exchangePage.modalTitle") }),
+              s.jsxs("p", { className: e.amount, children: [u(t), " Silver"] }),
+              s.jsx(f, { text: n("exchangePage.modalBtn"), onClick: c, className: `${e.modalBtn} orangeButton` }),
+            ],
+          }),
+        ],
+      }),
+    ],
+  });
+}
+export { ps as default };

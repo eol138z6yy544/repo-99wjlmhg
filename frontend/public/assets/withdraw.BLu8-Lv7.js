@@ -1,0 +1,1 @@
+import{j as r}from"./index.L_oMLRKj.js";const s=async()=>{try{const{data:t}=await r.get("/payments/withdraw_rates");return t}catch(t){console.log(t)}},e=async t=>{try{return await r.post("/payments/withdraw",t)}catch(a){throw console.log(a),a}};export{e as f,s as g};

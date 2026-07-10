@@ -1,0 +1,496 @@
+const __vite__mapDeps = (
+  i,
+  m = __vite__mapDeps,
+  d = m.f ||
+    (m.f = [
+      "assets/ResultModal.DnWwJ5Fk.js",
+      "assets/react.PneIXFW0.js",
+      "assets/useModalContext.CtS9G1hM.js",
+      "assets/index.L_oMLRKj.js",
+      "assets/index.B6ccmzU4.css",
+      "assets/ModalLayer.B5DWEgzR.js",
+      "assets/ModalLayer.CXW2sm24.css",
+      "assets/CustomButton.aFAv9M3W.js",
+      "assets/proxy.B82iKJfU.js",
+      "assets/cn.CzrlVXIY.js",
+      "assets/formatShortNumber.C6zlN--3.js",
+      "assets/createRewardName.CxPxmKPm.js",
+      "assets/index.C5J4nSwT.js",
+      "assets/icons.DuQb2KfE.js",
+      "assets/getRandomFromTo.CAXMFiD-.js",
+      "assets/proxy.DVwJJP5T.js",
+      "assets/WithdrawLimitModal.BL76s96p.js",
+      "assets/withdrawLimitModal.Bq5G3q2j.js",
+      "assets/WithdrawLimitModal.CmR_AWnm.css",
+      "assets/ResultModal.DtGB3sp6.css",
+      "assets/NoHaveSilverModal.DZ8W1wiU.js",
+      "assets/NoHaveSilverModal.mSWlf3L1.css",
+      "assets/InfoModal.epjs9JAt.js",
+      "assets/swiper-bundle.BdtK6tUU.js",
+      "assets/swiper-bundle.BUrcyj0q.css",
+      "assets/silvercoin64.pE6ZNRDh.js",
+      "assets/InfoModal.l9OmiNY9.css",
+      "assets/YoursGamesHistoryModal.CVYVbA6G.js",
+      "assets/Pagination.DvV5r67n.js",
+      "assets/Pagination.C0H8kFql.css",
+      "assets/YoursGamesHistoryModal.CbfqvjsP.css",
+    ]),
+) => i.map((i) => d[i]);
+import { j as I, A as C, d as tt, l as et, m as st, _ as T, b as V, u as U, U as M, p as W, n as rt } from "./index.L_oMLRKj.js";
+import { r as a, j as s } from "./react.PneIXFW0.js";
+import { R as ot, f as nt } from "./icons.DuQb2KfE.js";
+import { u as $ } from "./useModalContext.CtS9G1hM.js";
+import { g as at } from "./getRandomFromTo.CAXMFiD-.js";
+import { c as S } from "./cn.CzrlVXIY.js";
+import { u as z, M as ct, a as it, b as lt, s as H, c as ut, m as dt } from "./proxy.DVwJJP5T.js";
+import { C as _t } from "./CustomButton.aFAv9M3W.js";
+import mt from "./WithdrawLimitModal.BL76s96p.js";
+import { m as Y } from "./proxy.B82iKJfU.js";
+function gt(t) {
+  const e = z(() => it(t)),
+    { isStatic: r } = a.useContext(ct);
+  if (r) {
+    const [, o] = a.useState(t);
+    a.useEffect(() => e.on("change", o), []);
+  }
+  return e;
+}
+function ht(t) {
+  t.values.forEach((e) => e.stop());
+}
+function P(t, e) {
+  [...e].reverse().forEach((o) => {
+    const n = t.getVariant(o);
+    (n && H(t, n),
+      t.variantChildren &&
+        t.variantChildren.forEach((i) => {
+          P(i, e);
+        }));
+  });
+}
+function ft(t, e) {
+  if (Array.isArray(e)) return P(t, e);
+  if (typeof e == "string") return P(t, [e]);
+  H(t, e);
+}
+function pt() {
+  const t = new Set(),
+    e = {
+      subscribe(r) {
+        return (t.add(r), () => void t.delete(r));
+      },
+      start(r, o) {
+        const n = [];
+        return (
+          t.forEach((i) => {
+            n.push(lt(i, r, { transitionOverride: o }));
+          }),
+          Promise.all(n)
+        );
+      },
+      set(r) {
+        return t.forEach((o) => {
+          ft(o, r);
+        });
+      },
+      stop() {
+        t.forEach((r) => {
+          ht(r);
+        });
+      },
+      mount() {
+        return () => {
+          e.stop();
+        };
+      },
+    };
+  return e;
+}
+function bt() {
+  const t = z(pt);
+  return (ut(t.mount, []), t);
+}
+const xt = bt,
+  Rt = "_root_8gj6s_1",
+  wt = "_header_8gj6s_7",
+  Bt = "_list_8gj6s_14",
+  vt = "_roulette_8gj6s_23",
+  yt = "_icon_8gj6s_27",
+  jt = "_chooseYourBet_8gj6s_33",
+  Et = "_usersBets_8gj6s_37",
+  B = { root: Rt, header: wt, list: Bt, roulette: vt, icon: yt, chooseYourBet: jt, usersBets: Et },
+  St = "_root_19bzv_1",
+  Nt = "_rowContainer_19bzv_12",
+  It = "_row_19bzv_12",
+  Ct = "_sectionWrapper_19bzv_33",
+  Tt = "_section_19bzv_33",
+  Lt = "_triangle_19bzv_54",
+  v = { root: St, rowContainer: Nt, row: It, sectionWrapper: Ct, section: Tt, triangle: Lt },
+  k = -1,
+  At = ({ items: t, winningIndex: e, isSpinning: r, onComplete: o, renderSection: n, createKey: i, className: d }) => {
+    const l = xt(),
+      _ = gt(0),
+      h = a.useRef(null),
+      [w, u] = a.useState(0),
+      g = 5,
+      c = 64,
+      f = c + g,
+      m = 4,
+      p = 5,
+      L = p + m,
+      N = Array.from({ length: L }, () => [...t]).flat(),
+      b = t.length * f;
+    a.useEffect(() => {
+      h.current && u(h.current.clientWidth);
+    }, []);
+    const F = a.useCallback(
+      async (R) => {
+        (l.stop(), await l.start({ x: [R, R - b], transition: { repeat: 1 / 0, repeatType: "loop", duration: 0.5, ease: "linear" } }));
+      },
+      [l],
+    );
+    return (
+      a.useEffect(() => {
+        if (!r) {
+          l.stop();
+          return;
+        }
+        const R = _.get();
+        if (!(e >= 0)) {
+          F(R);
+          return;
+        }
+        l.stop();
+        const A = w / 2 - f / 2,
+          X = at(-32, c / 2) + A,
+          K = (((e * f - X) % b) + b) % b,
+          Q = ((-R % b) + b) % b,
+          Z = K - Q + p * b,
+          q = R - Z;
+        l.start({ x: q, transition: { duration: 5, ease: "easeOut" } }).then(() => {
+          o == null || o(t[e]);
+          const J = ((-_.get() % b) + b) % b;
+          _.set(-J);
+        });
+      }, [r, e, l, _, w, t, f, o]),
+      s.jsxs("div", {
+        className: S(v.root, d),
+        children: [
+          s.jsx("div", {
+            className: v.rowContainer,
+            ref: h,
+            children: s.jsx(dt.div, {
+              className: v.row,
+              animate: l,
+              style: { x: _ },
+              children: N.map((R, D) => {
+                const A = i(R);
+                return s.jsx("div", { className: v.sectionWrapper, style: { width: `${f}px` }, children: s.jsx("div", { className: v.section, children: n(R) }) }, `${A}-${D}`);
+              }),
+            }),
+          }),
+          s.jsx(ot, { className: v.triangle }),
+        ],
+      })
+    );
+  },
+  Oe = async () => {
+    try {
+      const { data: t } = await I.get("/users/birds_roulette/history");
+      return t;
+    } catch (t) {
+      console.log(t, C.BIRDS_ROULETTE_HISTORY);
+    }
+  },
+  Ot = async () => {
+    try {
+      const { data: t } = await I.get("/users/birds_roulette/top");
+      return t;
+    } catch (t) {
+      console.log(t, C.BIRDS_ROULETTE_USER_BETS);
+    }
+  },
+  Pt = async (t) => {
+    try {
+      const { data: e } = await I.post("/users/birds_roulette", { amount_silver: t });
+      return e;
+    } catch (e) {
+      console.log(e, C.SPIN_BIRDS_ROULETTE);
+    }
+  },
+  $t = async () => {
+    try {
+      const { data: t } = await I.get("/users/birds_roulette/info");
+      return t;
+    } catch (t) {
+      console.log(t, C.BIRDS_ROULETTE_REWARD_INFO);
+    }
+  };
+function Dt(t) {
+  const e = t.slice();
+  for (let r = e.length - 1; r > 0; r--) {
+    const o = Math.floor(Math.random() * (r + 1));
+    [e[r], e[o]] = [e[o], e[r]];
+  }
+  return e;
+}
+const Ut = () => {
+    const [t, e] = a.useState(null);
+    return (
+      a.useEffect(() => {
+        (async () => {
+          const o = await $t();
+          if (!o) return;
+          const n = Object.keys(o).reduce((i, d) => ((i[d] = Dt(o[d])), i), {});
+          e(n);
+        })();
+      }, []),
+      { rewardVariants: t }
+    );
+  },
+  Mt = () => {
+    const [t, e] = a.useState([]),
+      [r, o] = a.useState("5000"),
+      { rewardVariants: n } = Ut();
+    return (
+      a.useEffect(() => {
+        n && t.length === 0 && e(n[5e3]);
+      }, [n]),
+      {
+        onChangeBet: a.useCallback(
+          (d) => {
+            if (!(n != null && n[5e3].length)) return;
+            const l = n[d];
+            (e(l), o(d));
+          },
+          [n],
+        ),
+        bet: r,
+        rewards: t,
+      }
+    );
+  },
+  Wt = a.lazy(() => T(() => import("./ResultModal.DnWwJ5Fk.js"), __vite__mapDeps([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]))),
+  kt = () => {
+    const [t, e] = a.useState(!1),
+      [r, o] = a.useState(k),
+      [n, i] = a.useState([]),
+      d = tt(),
+      { onChangeBet: l, bet: _, rewards: h } = Mt(),
+      { open: w } = $(),
+      u = a.useRef(null),
+      g = a.useCallback(
+        async (m) => {
+          if (t) return;
+          e(!0);
+          const p = await Pt(m);
+          if (!p) return;
+          const L = h.findIndex((N) => p.type === N.type && p.amount === N.amount);
+          o(L);
+        },
+        [t, h],
+      ),
+      c = a.useCallback(async (m) => {
+        (e(!1), o(k));
+        const p = await et();
+        (d(st({ user: p })), u.current && clearTimeout(u.current), await f(), w(s.jsx(Wt, { amount: m.amount, type: m.type })));
+      }, []),
+      f = async () => {
+        const m = await Ot();
+        i(m || []);
+      };
+    return (
+      a.useEffect(() => {
+        if (t) {
+          u.current && (clearTimeout(u.current), (u.current = null));
+          return;
+        }
+        const m = () => {
+          u.current = setTimeout(async () => {
+            (await f(), m());
+          }, 1e4);
+        };
+        return (
+          m(),
+          () => {
+            u.current && (clearTimeout(u.current), (u.current = null));
+          }
+        );
+      }, [t]),
+      a.useEffect(() => {
+        n.length === 0 && f();
+      }, []),
+      { isSpinning: t, winningIndex: r, onSpin: g, onComplete: c, userBets: n, onChangeBet: l, bet: _, rewards: h }
+    );
+  },
+  Vt = "_root_gtgm7_1",
+  zt = "_title_gtgm7_13",
+  Ht = "_changeBetsActions_gtgm7_75",
+  Yt = "_row_gtgm7_102",
+  Gt = "_changeBet_gtgm7_75",
+  Ft = "_changeBet_small_gtgm7_116",
+  Xt = "_changeBet_big_gtgm7_119",
+  Kt = "_button_gtgm7_127",
+  x = { root: Vt, title: zt, changeBetsActions: Ht, row: Yt, changeBet: Gt, changeBet_small: Ft, changeBet_big: Xt, button: Kt };
+function j(t) {
+  if (t < 1e3) return t.toString();
+  const e = t / 1e3;
+  return `${Number(e.toFixed(2))
+    .toString()
+    .replace(/\.0+$/, "")
+    .replace(/(\.\d*[1-9])0+$/, "$1")}k`;
+}
+const Qt = a.lazy(() => T(() => import("./NoHaveSilverModal.DZ8W1wiU.js"), __vite__mapDeps([20, 1, 5, 2, 3, 4, 6, 7, 8, 9, 21]))),
+  Zt = ({ onSpin: t, onChangeBet: e, className: r, bet: o, isSpinning: n }) => {
+    const { t: i } = V(),
+      d = U(M.amount_silver),
+      l = U(M.deposit_counter),
+      { open: _ } = $(),
+      h = ["5000", "10000", "25000"],
+      w = ["50000", "100000"],
+      u = (c) => {
+        o === c || n || (W(), e(c));
+      },
+      g = (c, f, m) => {
+        if (!c || m) return;
+        W();
+        const p = Number(c);
+        if (l === 0) {
+          (rt(), _(s.jsx(mt, { title: "birdsRoulette.alertModal.title1", text: "birdsRoulette.alertModal.text1", isPayments: !0 })));
+          return;
+        }
+        if (f < p) {
+          _(s.jsx(Qt, {}));
+          return;
+        }
+        t(p);
+      };
+    return s.jsxs(Y.div, {
+      className: S(x.root, r),
+      initial: { scale: 0, opacity: 0 },
+      animate: { scale: 1, opacity: 1 },
+      children: [
+        s.jsx("h3", { className: x.title, children: i("birdsRoulettePage.chooseYourBet") }),
+        s.jsxs("div", {
+          className: x.changeBetsActions,
+          children: [
+            s.jsx("div", {
+              className: x.row,
+              children: h.map((c) => s.jsx("div", { className: S(x.changeBet, x.changeBet_small), "data-selected": c === o, onClick: () => u(c), children: j(Number(c)) }, c)),
+            }),
+            s.jsx("div", {
+              className: x.row,
+              children: w.map((c) => s.jsx("div", { className: S(x.changeBet, x.changeBet_big), "data-selected": c === o, onClick: () => u(c), children: j(Number(c)) }, c)),
+            }),
+          ],
+        }),
+        s.jsx(_t, { onClick: () => g(o, d, n), text: i("birdsRoulettePage.spin"), className: S(x.button, "button redButton") }),
+      ],
+    });
+  },
+  qt = "_root_96ztr_1",
+  Jt = "_avatar_96ztr_19",
+  te = "_name_96ztr_32",
+  ee = "_reward_96ztr_40",
+  se = "_image_96ztr_46",
+  re = "_text_96ztr_63",
+  y = { root: qt, avatar: Jt, name: te, reward: ee, image: se, text: re };
+var E = ((t) => (
+  (t.BABY = "birds_a"),
+  (t.GREEN = "birds_b"),
+  (t.BLUE = "birds_d"),
+  (t.RED = "birds_e"),
+  (t.YELLOW = "birds_c"),
+  (t.SILVER = "silver"),
+  (t.EGGS = "eggs"),
+  (t.TICKET = "roulette_tickets"),
+  t
+))(E || {});
+const oe = "/static/images/silverRoulette/rewards/birds_a.webp",
+  ne = "/static/images/silverRoulette/rewards/birds_b.webp",
+  ae = "/static/images/silverRoulette/rewards/birds_d.webp",
+  ce = "/static/images/silverRoulette/rewards/birds_e.webp",
+  ie = "/static/images/silverRoulette/rewards/birds_c.webp",
+  le = "/static/images/silverRoulette/rewards/silver.webp",
+  ue = "/static/images/silverRoulette/rewards/eggs.webp",
+  de = "/static/images/silverRoulette/rewards/ticket.webp",
+  _e = { birds_a: oe, birds_b: ne, birds_d: ae, birds_e: ce, birds_c: ie, silver: le, eggs: ue, [E.TICKET]: de },
+  G = (t) => _e[t],
+  me = ({ user_name: t, prize: e, photo_url: r }) => {
+    const o = (n) => (n === E.SILVER || n === E.EGGS ? j(e.amount) : `x${j(e.amount)}`);
+    return s.jsxs(Y.div, {
+      className: y.root,
+      initial: { scale: 0, opacity: 0 },
+      animate: { scale: 1, opacity: 1 },
+      children: [
+        s.jsx("div", {
+          className: y.avatar,
+          children: s.jsx("img", { src: r || "/defaultAvatar.webp", onError: (n) => (n.currentTarget.src = "/defaultAvatar.webp"), alt: "", width: 54, height: 54 }),
+        }),
+        s.jsxs("div", {
+          children: [
+            s.jsx("div", { className: y.name, children: t }),
+            s.jsxs("div", {
+              className: y.reward,
+              children: [
+                s.jsx("img", { className: y.image, src: G(e.type), alt: "", width: 22, height: 28, "data-reward": e.type }),
+                s.jsx("div", { className: y.text, "data-reward": e.type, children: o(e.type) }),
+              ],
+            }),
+          ],
+        }),
+      ],
+    });
+  },
+  ge = "_root_161oh_1",
+  he = "_image_161oh_14",
+  fe = "_text_161oh_31",
+  O = { root: ge, image: he, text: fe },
+  pe = ({ prize: t }) => {
+    const e = (r) => (r === E.SILVER || r === E.EGGS ? j(t.amount) : `x${j(t.amount)}`);
+    return s.jsxs("div", {
+      className: O.root,
+      children: [
+        s.jsx("img", { className: O.image, src: G(t.type), alt: "", width: 34, height: 44, "data-reward": t.type }),
+        s.jsx("div", { className: O.text, "data-reward": t.type, children: e(t.type) }),
+      ],
+    });
+  },
+  be = a.lazy(() => T(() => import("./InfoModal.epjs9JAt.js"), __vite__mapDeps([22, 1, 5, 2, 3, 4, 6, 9, 23, 24, 25, 13, 8, 14, 15, 7, 16, 17, 18, 26]))),
+  xe = a.lazy(() => T(() => import("./YoursGamesHistoryModal.CVYVbA6G.js"), __vite__mapDeps([27, 1, 5, 2, 3, 4, 6, 10, 28, 29, 11, 13, 14, 9, 15, 7, 8, 16, 17, 18, 30]))),
+  Re = () => {
+    const { t } = V(),
+      { open: e } = $(),
+      { isSpinning: r, onSpin: o, winningIndex: n, onComplete: i, userBets: d, bet: l, rewards: _, onChangeBet: h } = kt(),
+      w = () => {
+        e(s.jsx(be, {}));
+      },
+      u = () => {
+        e(s.jsx(xe, {}));
+      };
+    return s.jsxs("div", {
+      className: B.root,
+      children: [
+        s.jsxs("div", {
+          className: B.header,
+          children: [
+            s.jsx("img", { src: "/silverRoulette/history.webp", alt: "", className: B.icon, onClick: u }),
+            s.jsx("h1", { className: "pagetitle21", children: t("birdsRoulettePage.pageTitle") }),
+            s.jsx(nt, { className: B.icon, onClick: w }),
+          ],
+        }),
+        s.jsxs("div", {
+          className: B.list,
+          children: [
+            !!_.length &&
+              s.jsx(At, { className: B.roulette, items: _, winningIndex: n, isSpinning: r, onComplete: i, renderSection: (g) => s.jsx(pe, { prize: g }), createKey: (g) => `${g.amount}-${g.type}` }),
+            s.jsx(Zt, { className: B.chooseYourBet, bet: l, onSpin: o, onChangeBet: h, isSpinning: r }),
+            s.jsx("h2", { className: B.usersBets, children: t("birdsRoulettePage.usersBets") }),
+            d.map((g, c) => a.createElement(me, { ...g, key: c })),
+          ],
+        }),
+      ],
+    });
+  },
+  Pe = Object.freeze(Object.defineProperty({ __proto__: null, default: Re }, Symbol.toStringTag, { value: "Module" }));
+export { Pe as B, E as R, Oe as a, j as f, G as g };

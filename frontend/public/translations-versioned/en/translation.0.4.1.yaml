@@ -1,0 +1,425 @@
+interfaceLanguage: Interface Language
+headerMenu:
+    faq: FAQ
+    support: Support
+    accountDetails: Account Details
+    txHistory: Transaction History
+nav:
+    shop: Shop
+    tasks: Tasks
+    birds: Birds
+    warehouse: Eggs
+    menu: Menu
+sideMenu:
+    gamesSoon: Games
+    referralSystem: Referral System
+    roulette: Roulette
+    withdraw: Withdraw
+    exchanger: Exchanger
+tasksPage:
+    title: Tasks
+    tabs:
+        invite: Invite
+        follow: Follow
+        other: Other
+    modal:
+        type: Task Type
+        reward: Reward
+        checkTask: Verify
+        progress: Progress
+        invited: invited
+        silver: Silver
+shopPage:
+    purchaseTitle: Your Balance for Purchases
+    buyMoreSilver: Buy More Silver
+    birds: "Birds:"
+    eggsPerHour: Eggs per Hour
+    cost: Cost
+    birdsTotal: Total Birds
+    sellBirds: "Also, you can sell your birds"
+    sellBtn: Sell
+sellPage:
+    title: Sell your birds
+    qty: "You have:"
+    receive: "You will receive:"
+    sellBtn: Sell
+    notEnoughBirds: Not enough birds
+    cannotSellAllBirds: You can’t sell the last bird
+    successBirdSell: "Birds sold successfully"
+buySilverPage:
+    title: "Enter the amount in Stars"
+    minAmount: "Minimum deposit is 150 ⭐"
+    youWillReceive: "You will receive:"
+    pickCurrencyTitle: "Select cryptocurrency:"
+    infoPaymentsBonus: "20% BONUS ON YOUR FIRST DEPOSIT!"
+    infoTickets: "*For every 600 ⭐ deposited, you’ll get 1 ticket for a roulette spin!"
+    alertModal:
+        success: "Top-up successful. Funds will be credited to your balance shortly"
+        error: "Top-up error. Stars were not received by us. Please try again!"
+topupPage:
+    pageTitle: Top up via
+    sendThisAmount: "Send this amount:"
+    toThisWallet: "To this wallet:"
+    copyAmount: Copy Amount
+    copyWallet: Copy Wallet
+    disclaimer: "*Silver will be credited automatically once the transaction is complete."
+exchangePage:
+    pageTitle: Exchange
+    enterTheGoldSum: "Enter the amount of gold:"
+    youWillReceiveSilver: "You will receive silver:"
+    exchangeButton: Exchange
+    disclaimer: >-
+        *Exchange Gold for Silver and get +10% extra Silver!
+    modalTitle: "Received:"
+    modalBtn: Close
+    maxAmountGold: "You don't have enough gold to exchange"
+    minAmountGold: "Minimum exchange amount is 20 gold"
+birdsRoulettePage:
+    pageTitle: "Prize Roulette"
+    infoModalTitle: "Prize Roulette"
+    infoModalDescription: "Place a bet to win birds, eggs, silver, or a bonus roulette ticket."
+    infoModalMoreBet: "The higher the bet, the more valuable the prizes and the higher the chance to win!"
+    infoModalYouCanWinBirds: "You can win birds"
+    infoModalOtherPrizes: "And other prizes"
+    chooseYourBet: "Choose your bet:"
+    yourLastGames: "Your last 30 games"
+    prize: "Prize"
+    multiplier: "Multiplier"
+    bet: "Bet"
+    spin: "Spin"
+    usersBets: "Users’ bets"
+    noHaveSilverModalTitle: "Oops!"
+    noHaveSilverModalDescription: "You don’t have enough silver."
+warehousePage:
+    pageTitle: Warehouse
+    sellButton: Sell
+    warehouseFullText: Your warehouse is full! Sell your eggs.
+withdrawPage:
+    title: "Select cryptocurrency:"
+    min: "Min. amount:"
+    gold: Gold
+withdrawForm:
+    title: Withdraw
+    subtitle: "Network fee "
+    gold: Gold
+    enterWallet: "Enter wallet address:"
+    enterTag: "Destination Tag:"
+    enterGold: "Enter the amount of gold:"
+    receive: "You will receive "
+    withdrawButton: Withdraw
+    optionalTag: "Optional, can be left blank"
+    lastPayouts: "Your last 15 payouts"
+    amount: Amount
+    date: Date
+    status: Status
+    info: Info
+    errorNetwork: "Network fee"
+    errorInvalidAddress: "Invalid address"
+    errorMinAmount: "Minimum gold required"
+    errorMaxAmount: "Not enough gold available"
+    successModal: Withdrawal successful. Please wait for your funds to arrive.
+    errorModal: Withdrawal failed. Please try again later.
+statusInfo:
+    in_progress: Pending
+    failed: Error
+    processed: Completed
+upgradeModal:
+    title: Warehouse Upgrade
+    eggCapacity: "Egg capacity:"
+    cost: "Cost:"
+    btn: Upgrade
+sellEggsModal:
+    title: "Sell Eggs:"
+    yourEggs: Your eggs
+    youWillReceive: "You will receive:"
+    silverForPurchases: Silver for purchases
+    goldForWithdraw: Gold for withdraw
+    btn: Exchange
+alertModal:
+    successWarehouseUpgrade: Your warehouse was successfully upgraded!
+    notEnoughSilverWarehouseUpgrade: "You don’t have enough Silver to upgrade this warehouse :("
+    successEggsExchange: Your eggs were successfully exchanged!
+    errorEggsExchange: "Eggs exchange failed! Minimum exchange amount is 200 eggs"
+    successBirdPurchase: Bird purchased successfully!
+    errorBirdPurchase: You don’t have enough silver for the purchase!
+warehouseInfo:
+    title: Information
+    warehouseCapacity: Warehouse capacity
+    eggsPerHour: "Eggs per Hour:"
+    infoText1: >-
+        When the warehouse is full, new eggs won’t be collected. Sell your eggs regularly to avoid losing them.
+    infoText2: Upgrade your warehouse to increase your egg storage capacity.
+homepage:
+    warehouseButton: Warehouse
+    warehouseBanner: "Next egg in: "
+    time: "sec"
+bonusModal:
+    title: WELCOME BONUS
+    subtitle: Silver
+roulette:
+    button: Spin
+    pageTitle: Roulette
+    subtitle: Spin the wheel and win prizes!
+    rouletteModal: "You have no tickets. To earn tickets, top up your balance: for every 600 ⭐ you deposit, you’ll receive 1 ticket."
+    rouletteInfoModal: "When you buy Silver, you earn tickets. Use these tickets to spin the wheel and win prizes!"
+    resultModalTitle: "You won:"
+    resultModalButton: Claim
+support:
+    pageTitle: Support
+    needHelp: Need help?
+    text: >-
+        Please send your question directly to our Telegram support account: @StarsBirdsSupportBot
+    btn: Contact Support
+faq:
+    pageTitle: FAQ
+    items:
+        - title: How does Stars Birds work?
+          text: "You buy birds that lay eggs. The eggs accumulate in real time. Then you sell them and receive two currencies: Silver for purchases and Gold for withdrawal."
+        - title: How can I earn here?
+          text: When you first log in, you’ll receive a starter bird and some Silver. To earn faster, buy more birds or upgrade your warehouse.
+        - title: What should I do with the eggs?
+          text: Eggs are the main resource produced by your birds. You can sell them to earn rewards.
+        - title: How do I sell eggs?
+          text: Go to the “Warehouse” section and click “SELL”. When you sell eggs, you receive Silver and Gold.
+        - title: What is Silver used for?
+          text: "Silver is used for in-game purchases: birds and warehouse upgrades."
+        - title: What is Gold used for?
+          text: Gold is the withdrawal currency. You can exchange it for real money. Withdrawals are automatic and almost instant.
+        - title: What happens if the warehouse is full?
+          text: Egg production stops when your warehouse is full! Upgrade your warehouse or sell eggs regularly to avoid losing profit.
+        - title: What types of birds are there?
+          text: There are 5 bird levels, each with its own productivity.
+        - title: What is the warehouse?
+          text: The warehouse is where your eggs are stored. Upgrading it increases its capacity.
+        - title: Can I use Gold for purchases?
+          text: "Yes, but with one step: first exchange Gold for Silver in the “EXCHANGE” section. Afterwards, you can use the Silver for any in-game purchases.  Plus, you’ll receive a +10% bonus!"
+        - title: Can I get birds for free?
+          text: Yes! Complete tasks, earn bonuses, join contests and invite friends.
+        - title: How does the referral system work?
+          text: "For each invited player you receive: For each invited player you receive: • up to 3200 Silver • and up to 12% of all their top-ups. Your referral link is available in the “Earn” section. You can find detailed information on the “Referral System” page."
+        - title: Where can I get help?
+          text: If you have any issues, go to the “Support” section — we’re always here to help.
+    contactBtn: Contact Support
+accountDetails:
+    title: Account Information
+    id: "Project ID:"
+    copy: Copy
+    copied: Copied
+    registered: "Registered:"
+    at: at
+    balanceForWithdraw: "Balance for withdrawal:"
+    balanceForPurchases: "Balance for purchases:"
+transactionHistoryPage:
+    pageTitle: Transaction History
+    amount: Amount
+    date: Date
+ref:
+    pageTitle: Referral System
+    invite: Invite
+    referrals: Referrals
+    referralFees: "Referral rewards"
+    referralFeesInfo: "Choose the currency for referral rewards. Tip: silver is twice as profitable."
+    gold: "Gold"
+    silver: "Silver"
+    lvl: "Level"
+    yourReferrals: Your Referrals
+    notReferrals: You have no referrals yet
+    earned: Earned
+    level: Level
+    name: Name
+    commission: Commission
+refInvite:
+    title: Your Referral Link
+    inviteBtn: Invite Friends
+    subtitle: BONUSES
+    text1: Invite friends and earn Gold and Silver!
+    text2: Earn up to 12% from all your friends’ top-ups in the game!
+    moreDetails: More Details
+referralDetailsModal:
+    title: Earn by inviting friends!
+    infoText: Invite friends and get generous rewards in Gold and Silver!
+    title2: Earn up to 3,200 Silver for each friend.
+    infoText2: Get 200 Silver for every user who claims the welcome bonus, and 3,000 Silver for each referral who makes a deposit!
+    title3: Earn Gold from your referrals’ top-ups.
+    infoText3: "When someone you invite tops up their balance, you automatically earn a percentage in Gold:"
+    bonus1: • 12% from level 1 referral top-ups
+    bonus2: • 6% from level 2 referral top-ups
+    bonus3: • 2% from level 3 referral top-ups
+    title4: Rewards are instantly credited to your Gold balance — withdraw them anytime!
+birdsInfoModal:
+    title: "You have:"
+    subtitle: "Eggs per Hour:"
+    birds1: Baby Birds
+    birds2: Green Birds
+    birds3: Yellow Birds
+    birds4: Blue Birds
+    birds5: Red Birds
+tutorialOnePage:
+    title: Tutorial
+    subtitle: "YOU HAVE NO BIRDS :("
+    content: "TO BUY YOUR FIRST BIRD, GO TO THE SHOP"
+tutorialTwoPage:
+    titleOne: SHOP – HERE YOU CAN TOP UP YOUR BALANCE AND BUY BIRDS
+    subtitle: BUY YOUR FIRST BIRD
+    titleTwo: "NOW YOUR BIRD IS LAYING EGGS. TO SELL THEM, GO TO THE WAREHOUSE PAGE"
+tutorialThreePage:
+    textOne: "WAREHOUSE – HERE YOU CAN SELL EGGS AND RECEIVE SILVER AND GOLD (50/50)"
+    textTwo: "USED FOR IN-GAME PURCHASES"
+    textThree: "CAN BE EXCHANGED FOR REAL MONEY IN THE “WITHDRAWAL” SECTION"
+    silver: SILVER
+    gold: GOLD
+bannedPage:
+    title: "YOUR ACCOUNT HAS BEEN BLOCKED FOR ABUSING THE REFERRAL REWARD SYSTEM."
+    text1: "YOUR ID:"
+animationModal:
+    title: "Animations"
+    birds: Birds
+    eggs: Eggs
+    cloud: Clouds
+    title2: Sounds
+    music: Music
+    effects: Effects
+apply: Apply
+on: on
+off: off
+okay: Okay
+close: Close
+claim: Claim
+skip: Skip
+shop: Shop
+check: Check
+claimed: Claimed
+execute: Proceed
+eggs: eggs
+buy: Buy
+warehouse: Warehouse
+finish: Finish
+withdrawLimitModal:
+    title1: "Without topping up your balance, you can withdraw a maximum of 2 gold."
+    text1: "To remove all withdrawal limits, top up your balance with at least 150 ⭐."
+    title2: "You have already made your first test withdrawal. To continue withdrawing without limits, top up your balance with at least 150 ⭐."
+    text2: "This restriction is necessary to prevent dishonest users from abusing the platform."
+    button: Top Up
+    timeLimit: "Please wait a moment — withdrawals are available no more than once every 5 minutes"
+competitionPage:
+    title: Competition
+    tab1: Bonuses
+    tab2: Rules
+    prizePool: Prize Pool
+    endsIn: "The contest is over. The prizes have been distributed among the winners."
+    place: Your place
+    prize: Your prize
+    shop: BUY BIRDS
+    leaderboard: Leaderboard
+    userName: Name
+    prize2: Prize
+    productivity: "Productivity: "
+    eggs: "eggs/h"
+    days: "d"
+    hours: "h"
+    minutes: "m"
+    seconds: "s"
+    timeUp: "Time's up!"
+birdsPack:
+    title: "Or buy birds pack"
+    pricePack: "PRICE:"
+    silver: Silver
+    title2: "BIRDS PACK"
+    text: "More profit"
+    h: h
+    info: "ATTENTION! Send the EXACT amount shown above to this WALLET only. Any other amount or wallet will NOT be credited as a bonus pack."
+silverRoulette:
+    title: Silver Roulette
+    jackPot: JACKPOT
+    bets: "Latest Wins"
+    infoModal:
+        description: "Choose a bet and spin the roulette. The multiplier you get is your win."
+        description2: "With each bet, a certain percentage of silver goes to "
+        description3: ", and the higher your bet, the greater your chance of receiving it!"
+    historyModal:
+        title: "Your 30 last games"
+        prize: Prize
+        multiplier: Multiplier
+        bet: Bet
+    alertModal:
+        min: "Minimum amount is 100"
+        max: "Maximum amount is 999 999"
+        notEnoughSilver: "Not enough silver"
+        title1: "You can't spin the roulette without depositing funds."
+        text1: "To remove this restriction, please deposit at least 150 ⭐."
+gamesPage:
+    title: Games
+    roulette: PRIZE ROULETTE
+    rouletteDescription: "Win prizes"
+    lottery: Lottery
+    lotteryDescription: "Buy a lucky ticket"
+    silverRoulette: Silver Roulette
+    silverRouletteDescription: "Win a Jackpot"
+action:
+    cloud:
+        title: "SALE"
+    table:
+        title: "PROMOTION!"
+        deposit: "DEPOSIT AMOUNT"
+        bonus: "BONUS"
+    modal:
+        title: "Deposit Promotion!"
+        text: "Choose a deposit amount and receive an additional bonus. The higher the deposit, the bigger the silver bonus."
+        text2: "Important: The first deposit bonus is combined with the promotional bonus."
+birdsRoulette:
+    alertModal:
+        title1: "You can't spin the roulette without depositing funds."
+        text1: "To remove this restriction, please deposit at least 150 ⭐."
+cashPoints:
+    title: "Withdraw credits"
+    tabBalance: "Balance"
+    tabInfo: "Info"
+    balanceLabel: "Withdraw credits balance"
+    howToEarn: "How to earn Withdraw Credits?"
+    howToEarnTitle: "How to earn Withdraw Credits?"
+    ownPurchases: "Your own purchases give you:"
+    ownPurchasesPercent: "15% Credits"
+    referralTopups: "Balance top-ups made by your referrals give you:"
+    ref1: "12% from 1 lvl referrals"
+    ref2: "6% from 2 lvl referrals"
+    ref3: "2% from 3 lvl referrals"
+    earnRef1: "Level 1 referral top-ups"
+    earnRef1Percent: "12%"
+    earnRef2: "Level 2 referral top-ups"
+    earnRef2Percent: "6%"
+    earnRef3: "Level 3 referral top-ups"
+    earnRef3Percent: "2%"
+    earnDeposit: "Your own purchases"
+    earnDepositPercent: "15%"
+    infoText1: "show how much"
+    infoGold: "gold"
+    infoText2: "you can withdraw from the project."
+    infoText3: "you can withdraw from the project."
+    percentageNote: "The percentage (%) is calculated based on the deposit amount."
+    infoExchange: "1 Withdraw Credit = 1 Gold coin."
+    infoExchangeLeft: "1 Withdraw Credit"
+    infoExchangeRight: "1 Gold coin."
+    infoRequirement1: "To withdraw"
+    infoRequirementGold: "1,000 gold"
+    infoRequirementNum1: "1,000 gold"
+    infoRequirement2: ", you must have at least"
+    infoRequirementCredits: "1,000 Withdraw Credits"
+    infoRequirementNum2: "1,000 Withdraw Credits"
+    infoRequirement3: "on your balance."
+    historyTitle: "Withdraw credits history"
+    historyAmount: "Amount"
+    historyDate: "Date"
+    historyEmpty: "No history yet"
+    historyType: "Type"
+    amount: "Amount"
+    date: "Date"
+    goBack: "Go back"
+    errorNotEnough: "Oops! You don't have enough <highlight>Withdraw Credits</highlight> for withdrawal"
+    learnMore: "Learn more"
+creditType:
+    deposit: "Top-up balance"
+    withdrawal: "Withdrawal request"
+    refund: "Refund"
+    ref_1_deposit: "1 lvl Referral silver purchase comission"
+    ref_2_deposit: "2 lvl Referral silver purchase comission"
+    ref_3_deposit: "3 lvl Referral silver purchase comission"
