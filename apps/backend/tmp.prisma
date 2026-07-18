@@ -1,0 +1,88 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model bets {
+  id                          Int      @id @default(autoincrement())
+  round_id                    Int
+  user_id                     Int
+  stake_ton                   BigInt   @default(0)
+  payout_ton                  BigInt?  @default(0)
+  cashout_multiplier_bps      BigInt?  @default(10000)
+  auto_cashout_multiplier_bps BigInt?
+  status                      String   @default("PLACED") @db.VarChar(32)
+  meta                        Json     @default("{}")
+  created_at                  DateTime @default(now()) @db.Timestamp(6)
+  rounds                      rounds   @relation(fields: [round_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "bets_round_id_rounds_id_fk")
+  users                       users    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "bets_user_id_users_id_fk")
+}
+
+model rounds {
+  id               Int       @id @default(autoincrement())
+  round_id         String    @unique(map: "rounds_round_id_unique") @db.VarChar(128)
+  game             String    @db.VarChar(32)
+  status           String    @default("active") @db.VarChar(32)
+  config           Json      @default("{}")
+  state            Json      @default("{}")
+  server_seed      String?   @db.VarChar(128)
+  server_seed_hash String?   @db.VarChar(128)
+  client_seed      String?   @db.VarChar(256)
+  nonce            String?   @db.VarChar(128)
+  user_id          Int?
+  stake_ton        BigInt    @default(0)
+  payout_ton       BigInt?   @default(0)
+  created_at       DateTime  @default(now()) @db.Timestamp(6)
+  finished_at      DateTime? @db.Timestamp(6)
+  bets             bets[]
+  users            users?    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "rounds_user_id_users_id_fk")
+}
+
+model test_persist {
+  id Int @id @default(autoincrement())
+}
+
+model test_persist3 {
+  id Int @id @default(autoincrement())
+}
+
+model test_persist5 {
+  id Int @id @default(autoincrement())
+}
+
+model test_persist8 {
+  id Int @id @default(autoincrement())
+}
+
+model transactions {
+  id         Int      @id @default(autoincrement())
+  user_id    Int
+  type       String   @db.VarChar(32)
+  amount_ton BigInt   @default(0)
+  status     String   @default("pending") @db.VarChar(32)
+  meta       Json     @default("{}")
+  created_at DateTime @default(now()) @db.Timestamp(6)
+  users      users    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "transactions_user_id_users_id_fk")
+}
+
+model users {
+  id             Int            @id @default(autoincrement())
+  tg_user_id     String         @unique(map: "users_tg_user_id_unique") @db.VarChar(64)
+  username       String?        @db.VarChar(64)
+  first_name     String?        @db.VarChar(128)
+  last_name      String?        @db.VarChar(128)
+  photo_url      String?
+  language_code  String?        @db.VarChar(8)
+  balance_ton    BigInt         @default(0)
+  created_at     DateTime       @default(now()) @db.Timestamp(6)
+  updated_at     DateTime       @default(now()) @db.Timestamp(6)
+  last_income_at DateTime?      @db.Timestamp(6)
+  gold_balance   Decimal        @default(0) @db.Decimal
+  bets           bets[]
+  rounds         rounds[]
+  transactions   transactions[]
+}

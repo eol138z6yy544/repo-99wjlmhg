@@ -1,0 +1,135 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  schemas  = ["gramcat"]
+}
+
+model User {
+  id                    Int      @id @default(autoincrement())
+  tgId                  String   @unique @map("tg_id")
+  name                  String?
+  username              String?
+  firstName             String?  @map("first_name")
+  lastName              String?  @map("last_name")
+  languageCode          String?  @map("language_code")
+  photoUrl              String?  @map("photo_url")
+  isPremium             Boolean  @default(false) @map("is_premium")
+  allowsWriteToPm       Boolean  @default(false) @map("allows_write_to_pm")
+  balance               Int      @default(0)
+  totalReward           Int      @default(0) @map("total_reward")
+  welcomeBonus          Int      @default(0) @map("welcome_bonus")
+  referReward           Int      @default(0) @map("refer_reward")
+  referCode             String?  @map("refer_code")
+  referBy               String?  @map("refer_by")
+  totalReferred         Int      @default(0) @map("total_referred")
+  totalReferrerBonus    Int      @default(0) @map("total_referrer_bonus")
+  totalSocialTaskCompleted Int @default(0) @map("total_social_task_completed")
+  initialTaskCompleted  Boolean  @default(false) @map("initial_task_completed")
+  isConnected           Boolean  @default(false) @map("is_connected")
+  walletAddress         String?  @map("wallet_address")
+  approxAge             Int      @default(1) @map("approx_age")
+  checkinStreak         Int      @default(0) @map("checkin_streak")
+  lastCheckinAt         DateTime? @map("last_checkin_at")
+  createdAt             DateTime @default(now()) @map("created_at")
+  updatedAt             DateTime @updatedAt @map("updated_at")
+
+  taskCompletions TaskCompletion[]
+  referrals       Referral[]        @relation("ReferredBy")
+  referredMe      Referral?         @relation("ReferredMe")
+  milestones      UserMilestone[]
+
+  @@schema("gramcat")
+  @@map("users")
+}
+
+model Task {
+  id                  Int      @id @default(autoincrement())
+  name                String
+  subtitle            String?
+  href                String?
+  reward              Int
+  type                String
+  status              String   @default("approved")
+  checkSubscription   Boolean  @default(false) @map("check_subscription")
+  numberOfCompletion  Int      @default(0) @map("number_of_completion")
+  numberOfCompleted   Int      @default(0) @map("number_of_completed")
+  taskKey             String?  @unique @map("task_key")
+  authorId            String?  @map("author_id")
+  imageUrl            String?  @map("image_url")
+  sortOrder           Int      @default(0) @map("sort_order")
+  createdAt           DateTime @default(now()) @map("created_at")
+  updatedAt           DateTime @updatedAt @map("updated_at")
+
+  completions TaskCompletion[]
+
+  @@schema("gramcat")
+  @@map("tasks")
+}
+
+model TaskCompletion {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @map("user_id")
+  taskId    Int      @map("task_id")
+  reward    Int
+  type      String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  task Task @relation(fields: [taskId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, taskId])
+  @@schema("gramcat")
+  @@map("task_completions")
+}
+
+model Referral {
+  id          Int    @id @default(autoincrement())
+  referrerId  Int    @map("referrer_id")
+  referredId  Int    @unique @map("referred_id")
+  referReward Int    @default(0) @map("refer_reward")
+
+  referrer User @relation("ReferredBy", fields: [referrerId], references: [id], onDelete: Cascade)
+  referred User @relation("ReferredMe", fields: [referredId], references: [id], onDelete: Cascade)
+
+  @@schema("gramcat")
+  @@map("referrals")
+}
+
+model UserMilestone {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @map("user_id")
+  count     Int
+  reward    Int
+  claimedAt DateTime @default(now()) @map("claimed_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, count])
+  @@schema("gramcat")
+  @@map("user_milestones")
+}
+
+model Media {
+  id        Int      @id @default(autoincrement())
+  fileId    String   @unique @map("file_id")
+  filename  String
+  url       String
+  type      String   // image | video | doc
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@schema("gramcat")
+  @@map("media")
+}
+
+model Config {
+  id    String @id
+  value String
+
+  @@schema("gramcat")
+  @@map("config")
+}
